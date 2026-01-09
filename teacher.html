@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA | Admin Insight</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body data-role="teacher">
+
+    <nav class="navbar glass">
+        <div class="container flex-b">
+            <div class="logo">AURA INSIGHT</div>
+            <button onclick="localStorage.clear(); location.reload();" class="btn btn-glass"
+                style="color: var(--alert); border-color: rgba(244,63,94,0.3)">
+                <i class="fa-solid fa-trash" style="margin-right: 5px;"></i> Reset Data
+            </button>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 120px; padding-bottom: 4rem;">
+        <h1 style="margin-bottom: 2rem; font-family: var(--font-heading);">Executive Summary</h1>
+
+        <!-- KPI Cards -->
+        <div class="grid-4" style="margin-bottom: 3rem;">
+            <div class="glass stat-card">
+                <div style="color: var(--text-muted); font-size: 0.9rem;">Active Learners</div>
+                <div class="stat-val">24</div>
+                <div style="font-size: 0.8rem; color: var(--secondary);">+3 this session</div>
+            </div>
+            <div class="glass stat-card">
+                <div style="color: var(--text-muted); font-size: 0.9rem;">Avg. Duration</div>
+                <div id="kpi-duration" class="stat-val">0m</div>
+            </div>
+            <div class="glass stat-card">
+                <div style="color: var(--text-muted); font-size: 0.9rem;">Total Violations</div>
+                <div id="kpi-violations" class="stat-val" style="color: var(--alert)">0</div>
+            </div>
+            <div class="glass stat-card">
+                <div style="color: var(--text-muted); font-size: 0.9rem;">Engagement Score</div>
+                <div id="kpi-score" class="stat-val" style="color: var(--secondary)">100%</div>
+            </div>
+        </div>
+
+        <!-- Student Grid -->
+        <div class="glass" style="border-radius: var(--radius); overflow: hidden;">
+            <div style="padding: 1.5rem; border-bottom: var(--border);">
+                <h3>Live Performance Grid</h3>
+            </div>
+            <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                <thead>
+                    <tr style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">
+                        <th style="padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1);">Student</th>
+                        <th style="padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1);">Status</th>
+                        <th style="padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1);">Trust Score</th>
+                        <th style="padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1);">Violations</th>
+                        <th style="padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1);">Last Active</th>
+                    </tr>
+                </thead>
+                <tbody id="student-grid-body">
+                    <!-- JS Injects Here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

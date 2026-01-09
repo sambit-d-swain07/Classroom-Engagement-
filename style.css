@@ -1,0 +1,312 @@
+/* 
+   Project: Anti-Cheat & Engagement System
+   Theme: Modern EdTech (Indigo/Emerald/Rose)
+   Font: Inter
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Core Palette */
+    --primary: #4F46E5;      /* Indigo 600 */
+    --primary-glow: rgba(79, 70, 229, 0.4);
+    --success: #10B981;      /* Emerald 500 */
+    --success-glow: rgba(16, 185, 129, 0.4);
+    --danger: #EF4444;       /* Rose 500 */
+    --danger-dark: #b91c1c;
+    --danger-glow: rgba(239, 68, 68, 0.4);
+    
+    /* Neutrals */
+    --bg-dark: #0f172a;      /* Slate 900 */
+    --bg-card: #1e293b;      /* Slate 800 */
+    --text-main: #f8fafc;    /* Slate 50 */
+    --text-muted: #94a3b8;   /* Slate 400 */
+    --border: rgba(255, 255, 255, 0.1);
+    
+    /* Effects */
+    --glass: rgba(30, 41, 59, 0.7);
+    --blur: 12px;
+    --radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 15% 50%, rgba(79, 70, 229, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.1) 0%, transparent 25%);
+}
+
+/* Typography & Layout */
+h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; }
+a { text-decoration: none; color: inherit; }
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(to right, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--primary), #818cf8);
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 0 0 20px var(--primary-glow);
+}
+
+/* Landing Page Cards */
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 4rem;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.action-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    text-align: center;
+    transition: var(--transition);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+}
+
+.action-card h3 {
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1.5rem;
+}
+
+.action-card p {
+    color: var(--text-muted);
+}
+
+.card-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(79, 70, 229, 0.1);
+    color: var(--primary);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.action-card:hover .card-icon {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 20px var(--primary-glow);
+}
+
+/* Video Player Styles (Student) */
+.classroom-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+}
+
+.video-wrapper {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    background: #000;
+    aspect-ratio: 16/9;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.warning-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.warning-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.warning-content {
+    text-align: center;
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.warning-btn {
+    margin-top: 2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 10px 25px -5px var(--primary-glow);
+    transition: var(--transition);
+}
+
+.warning-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* Stats Sidebar */
+.stats-panel {
+    display: grid;
+    gap: 1.5rem;
+    align-content: start;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+}
+
+/* Dashboard Table (Teacher) */
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.dashboard-table th, 
+.dashboard-table td {
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+.dashboard-table th {
+    background: rgba(255,255,255,0.02);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+.dashboard-table tbody tr {
+    transition: background 0.2s;
+}
+
+.dashboard-table tbody tr:hover {
+    background: rgba(255,255,255,0.02);
+}
+
+.badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badge-success { background: rgba(16, 185, 129, 0.15); color: var(--success); }
+.badge-danger { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
+.badge-neutral { background: rgba(148, 163, 184, 0.15); color: var(--text-muted); }
+
+.row-suspicious {
+    background: rgba(239, 68, 68, 0.05);
+    border-left: 3px solid var(--danger);
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .classroom-layout { grid-template-columns: 1fr; }
+}
