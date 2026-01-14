@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURA | Engagement Intelligence</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>AURA Intelligence | Engagement Platform</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 
@@ -13,101 +13,138 @@
 
     <nav class="navbar">
         <div class="container flex-b">
-            <div class="logo gradient-text">AURA INTELLIGENCE</div>
+            <a href="#" class="logo-wrapper">
+                <img src="logo.jpg" alt="AURA Intelligence" style="height: 50px; border-radius: 8px;">
+            </a>
             <div class="flex-b" style="gap: 1rem">
                 <!--<a href="#features" class="btn btn-glass" style="font-size: 0.9rem;">Technology</a>-->
-                <a href="#login" class="btn btn-primary" style="font-size: 0.9rem;">Get Started</a>
+                <a href="#login" class="btn btn-primary" style="font-size: 0.9rem;">
+                    <i class="fa-solid fa-rocket"></i> Get Started
+                </a>
+                <button id="chat-toggle" class="btn btn-glass" style="font-size: 0.9rem;">
+                    <i class="fa-solid fa-robot"></i> Help AI
+                </button>
             </div>
         </div>
     </nav>
 
-    <header class="container" style="padding-top: 160px; padding-bottom: 80px; text-align: center;">
-        <h1 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1px;">
+    <header class="container"
+        style="padding-top: 180px; padding-bottom: 100px; text-align: center; position: relative;">
+        <!-- Decimal Decoration -->
+        <div
+            style="position: absolute; top: 150px; left: 50%; transform: translateX(-50%); font-family: monospace; color: var(--primary); opacity: 0.2; letter-spacing: 10px; font-size: 0.8rem;">
+            01001 • AURA INTELLIGENCE • SYS
+        </div>
+
+        <h1 class="hero-title">
             Transforming Online Learning with <br>
-            <span class="gradient-text">Intelligent Engagement</span>
+            <span class="text-gradient-primary">Intelligent Engagement</span>
         </h1>
-        <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 3rem;">
+        <p
+            style="font-size: 1.25rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 4rem; line-height: 1.8;">
             The world's first advanced telemetry platform for education.
-            Monitor focus, analyze behavior, and ensure integrity with AI-driven precision.
+            Monitor focus, analyze behavior, and ensure integrity with <span
+                style="color: white; font-weight: 500;">AI-driven precision</span>.
         </p>
 
         <!-- Login Portal -->
-        <div class="grid-2" style="max-width: 800px; margin: 0 auto;">
-            <a href="#login" style="text-decoration: none;">
-                <div class="glass feature-box" style="text-align: left; padding: 2.5rem; cursor: pointer;">
-                    <div class="feature-icon" style="color: var(--primary);">🎓</div>
-                    <h3>Student Access</h3>
-                    <p>Enter the immersive classroom environment.</p>
+        <div class="grid-2" style="max-width: 900px; margin: 0 auto;">
+            <a href="#login" data-auth-role="student" style="text-decoration: none;">
+                <div class="glass glass-hover feature-box" style="text-align: left; cursor: pointer;">
+                    <i class="fa-solid fa-graduation-cap feature-icon" style="color: var(--primary);"></i>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Student Access</h3>
+                    <p style="color: var(--text-muted);">Enter the immersive classroom environment with active
+                        proctoring.</p>
+                    <div style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--primary); font-weight: 600;">
+                        Enter Portal <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i>
+                    </div>
                 </div>
             </a>
-            <a href="#login" style="text-decoration: none;">
-                <div class="glass feature-box delay-1" style="text-align: left; padding: 2.5rem; cursor: pointer;">
-                    <div class="feature-icon" style="color: var(--secondary);">🛡️</div>
-                    <h3>Teacher Insight</h3>
-                    <p>View real-time analytics and integrity reports.</p>
+            <a href="#login" data-auth-role="teacher" style="text-decoration: none;">
+                <div class="glass glass-hover feature-box" style="text-align: left; cursor: pointer;">
+                    <i class="fa-solid fa-chart-pie feature-icon" style="color: var(--secondary);"></i>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Teacher Insight</h3>
+                    <p style="color: var(--text-muted);">View real-time analytics, integrity reports, and live
+                        violations.</p>
+                    <div style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--secondary); font-weight: 600;">
+                        Launch Dashboard <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i>
+                    </div>
                 </div>
             </a>
         </div>
     </header>
 
+
     <!-- Animated Feature Matrix -->
     <section class="container" style="padding: 4rem 0;">
-        <div style="text-align: center; margin-bottom: 3rem;">
-            <h2 style="font-size: 2rem;">Core Capabilities</h2>
-            <p style="color: var(--text-muted)">Powered by Next-Gen Telemetry</p>
+        <div style="text-align: center; margin-bottom: 4rem;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Core Capabilities</h2>
+            <p
+                style="color: var(--text-muted); font-family: monospace; letter-spacing: 2px; text-transform: uppercase;">
+                Powered by Next-Gen Telemetry</p>
         </div>
 
         <div class="grid-4">
             <!-- Box 1 -->
-            <div class="glass feature-box delay-1">
-                <i class="fa-solid fa-eye feature-icon" style="color: var(--secondary)"></i>
+            <div class="glass glass-hover feature-box">
+                <i class="fa-solid fa-eye feature-icon"
+                    style="color: var(--secondary); box-shadow: 0 0 20px -5px var(--secondary-glow);"></i>
                 <h3>Behavioral Integrity</h3>
-                <p>Advanced blur-masking and grayscale filters trigger instantly upon focus loss detection.</p>
+                <p style="color: var(--text-muted); margin-top: 1rem;">Advanced blur-masking and grayscale filters
+                    trigger instantly upon focus loss detection.</p>
             </div>
 
             <!-- Box 2 -->
-            <div class="glass feature-box delay-2">
-                <i class="fa-solid fa-chart-line feature-icon" style="color: var(--primary)"></i>
+            <div class="glass glass-hover feature-box">
+                <i class="fa-solid fa-chart-line feature-icon"
+                    style="color: var(--primary); box-shadow: 0 0 20px -5px var(--primary-glow);"></i>
                 <h3>Engagement Heatmaps</h3>
-                <p>Visual timelines map student attention spans with millisecond precision.</p>
+                <p style="color: var(--text-muted); margin-top: 1rem;">Visual timelines map student attention spans with
+                    millisecond precision.</p>
             </div>
 
             <!-- Box 3 -->
-            <div class="glass feature-box delay-3">
-                <i class="fa-solid fa-shield feature-icon" style="color: var(--alert)"></i>
+            <div class="glass glass-hover feature-box">
+                <i class="fa-solid fa-shield-halved feature-icon"
+                    style="color: var(--alert); box-shadow: 0 0 20px -5px var(--alert-glow);"></i>
                 <h3>Anti-Bypass Tech</h3>
-                <p>System-level hooks prevent inspection, seeking, and picture-in-picture exploits.</p>
+                <p style="color: var(--text-muted); margin-top: 1rem;">System-level hooks prevent inspection, seeking,
+                    and picture-in-picture exploits.</p>
             </div>
 
             <!-- Box 4 -->
-            <div class="glass feature-box delay-4">
+            <div class="glass glass-hover feature-box">
                 <i class="fa-solid fa-brain feature-icon" style="color: #60a5fa;"></i>
                 <h3>Trust Score AI</h3>
-                <p>Dynamic algorithms calculate integrity ratings based on real-time behavior patterns.</p>
+                <p style="color: var(--text-muted); margin-top: 1rem;">Dynamic algorithms calculate integrity ratings
+                    based on real-time behavior patterns.</p>
             </div>
         </div>
     </section>
 
     <!-- System Pre-Check -->
-    <section class="glass container"
-        style="margin-top: 4rem; padding: 2rem; border-radius: var(--radius); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-        <div>
-            <h4 style="margin-bottom: 0.5rem; font-family: var(--font-heading)">System Pre-Check</h4>
-            <div style="display: flex; gap: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
-                <span class="flex-b" style="gap: 0.5rem"><i class="fa-solid fa-check"
-                        style="color: var(--secondary)"></i> Browser Verified</span>
-                <span class="flex-b" style="gap: 0.5rem"><i class="fa-solid fa-check"
-                        style="color: var(--secondary)"></i> Scripts Active</span>
-                <span class="flex-b" style="gap: 0.5rem"><i class="fa-solid fa-check"
-                        style="color: var(--secondary)"></i> Network 14ms</span>
+    <section class="container" style="margin-top: 4rem; margin-bottom: 4rem;">
+        <div class="glass"
+            style="padding: 2rem; border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <h4 style="margin-bottom: 0.5rem; color: white;">System Pre-Check</h4>
+                <div style="display: flex; gap: 2rem; font-size: 0.9rem; color: var(--text-muted);">
+                    <span class="flex-b" style="gap: 0.5rem"><i class="fa-solid fa-circle-check"
+                            style="color: var(--secondary)"></i> Browser Verified</span>
+                    <span class="flex-b" style="gap: 0.5rem"><i class="fa-solid fa-circle-check"
+                            style="color: var(--secondary)"></i> Scripts Active</span>
+                    <span class="flex-b" style="gap: 0.5rem"><i class="fa-solid fa-wifi"
+                            style="color: var(--secondary)"></i> Network 14ms</span>
+                </div>
             </div>
-        </div>
-        <div style="text-align: right; opacity: 0.7; font-size: 0.8rem;">
-            v.2.4.0 (Stable) <br> Secured by AURA
+            <div style="text-align: right; opacity: 0.7; font-size: 0.8rem; font-family: monospace;">
+                v.2.4.0 (Stable) <br> Secured by AURA Intelligence
+            </div>
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 4rem 0; color: var(--text-muted); font-size: 0.9rem;">
+    <footer
+        style="text-align: center; padding: 4rem 0; color: var(--text-dim); font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05);">
         <p style="margin-bottom: 0.5rem;">Next-Gen Features: Eye-Tracking & Neural Sync coming Q4 2026.</p>
         <p>&copy; 2026 AURA Intelligence.</p>
     </footer>
@@ -130,8 +167,9 @@
             <form id="auth-form">
                 <div style="margin-bottom: 1.5rem;">
                     <label
-                        style="display: block; color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.5rem; margin-left: 4px;">INSTITUTIONAL
-                        ID / EMAIL</label>
+                        style="display: block; color: var(--text-muted); font-size: 0.75rem; margin-bottom: 0.5rem; margin-left: 4px; letter-spacing: 1px; text-transform: uppercase;">
+                        Institutional ID / Email
+                    </label>
                     <input type="email" id="email" class="form-input" placeholder="user@aura.edu" required
                         autocomplete="off">
                 </div>
@@ -144,6 +182,30 @@
             <div style="text-align: center; margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-muted);">
                 <i class="fa-solid fa-lock" style="color: var(--primary)"></i> End-to-end Encrypted
             </div>
+        </div>
+    </div>
+
+    <!-- Chat Widget -->
+    <div id="aura-chat" class="chat-widget">
+        <div class="chat-header">
+            <div class="flex-c" style="gap: 10px;">
+                <div
+                    style="background: var(--primary); width: 8px; height: 8px; border-radius: 50%; box-shadow: 0 0 10px var(--primary);">
+                </div>
+                <span>AURA Intelligence</span>
+            </div>
+            <button id="chat-close" style="background: none; border: none; color: var(--text-muted); cursor: pointer;">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="chat-body" id="chat-messages">
+            <div class="chat-msg bot">
+                Hello! I am AURA Intelligence's automated assistant. How can I help you today?
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Type your question..." autocomplete="off">
+            <button id="chat-send"><i class="fa-solid fa-paper-plane"></i></button>
         </div>
     </div>
 

@@ -4,103 +4,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURA | Immersive Classroom</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>AURA Intelligence | Immersive Classroom</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 
-<body data-role="student">
+<body data-role="student" style="overflow: hidden; background: #020005;">
 
+    <div class="student-grid">
 
+        <!-- Focus Area (Video) -->
+        <main class="focus-area">
 
-    <!-- Main Content Wrapper for Blur Effect -->
-    <div class="main-content" style="height: 100vh; display: grid; grid-template-columns: 1fr 300px;">
+            <div class="focus-content-wrapper">
+                <header
+                    style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: end; z-index: 2;">
+                    <div style="display: flex; align-items: center; gap: 1.5rem;">
+                        <a href="index.html" class="logo-wrapper"
+                            style="display: block; transition: transform 0.3s ease;">
+                            <img src="logo.jpg" alt="AURA Intelligence"
+                                style="height: 48px; border-radius: 8px; display: block;">
+                        </a>
+                        <div>
+                            <h2
+                                style="font-size: 2.25rem; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 0.5rem; text-shadow: 0 0 30px rgba(0,0,0,0.5);">
+                                Advanced Robotics: Module 1</h2>
+                            <div
+                                style="color: var(--text-dim); font-size: 0.9rem; display: flex; gap: 1.5rem; font-family: var(--font-body);">
+                                <span class="flex-c" style="gap: 8px;"><i class="fa-solid fa-user-tie"
+                                        style="color: var(--primary);"></i> Prof. A. Vance</span>
+                                <span class="flex-c" style="gap: 8px;"><i class="fa-solid fa-clock"
+                                        style="color: var(--secondary);"></i> 45m Duration</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="badge"
+                        style="background: rgba(16, 185, 129, 0.05); color: #10b981; padding: 0.5rem 1rem; border-radius: 100px; border: 1px solid rgba(16, 185, 129, 0.1); font-size: 0.8rem; display: flex; gap: 8px; align-items: center; backdrop-filter: blur(5px);">
+                        <div
+                            style="width: 6px; height: 6px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981;">
+                        </div>
+                        Live Connection
+                    </div>
+                </header>
 
-        <!-- Video Area -->
-        <div style="padding: 2rem; display: flex; flex-direction: column; justify-content: center; position: relative;">
-            <div style="margin-bottom: 1.5rem;">
-                <h2 style="font-family: var(--font-heading);">Advanced Robotics: Module 1</h2>
-                <div style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem;">Prof. A. Vance • 45m
-                    Duration</div>
-            </div>
+                <!-- Video Player Container -->
+                <div class="cinema-container">
+                    <!-- Ambient Glow Behind -->
+                    <div class="ambient-glow"></div>
 
-            <div
-                style="position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: 0 30px 60px -15px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1);">
+                    <!-- HUD Overlay -->
+                    <div style="position: absolute; top: 30px; left: 30px; z-index: 20; pointer-events: none;">
+                        <div style="display: flex; gap: 1rem;">
+                            <div
+                                style="background: rgba(0,0,0,0.5); padding: 8px 16px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(10px); display: flex; align-items: center; gap: 10px;">
+                                <span
+                                    style="color: var(--alert); font-weight: 700; font-size: 0.7rem; animation: pulse 2s infinite;">●
+                                    REC</span>
+                                <span
+                                    style="color: rgba(255,255,255,0.6); font-size: 0.75rem; letter-spacing: 1px;">SECURE
+                                    SESSION</span>
+                            </div>
+                        </div>
+                    </div>
 
-                <!-- HUD Overlay -->
-                <div
-                    style="position: absolute; top: 20px; left: 20px; z-index: 10; font-family: 'Space Grotesk', sans-serif; pointer-events: none;">
-                    <div
-                        style="background: rgba(0,0,0,0.6); padding: 4px 12px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(4px);">
-                        <span style="color: var(--alert); font-weight: 700; margin-right: 6px;">● REC</span>
-                        <span style="color: rgba(255,255,255,0.7); font-size: 0.8rem;">SECURE SESSION</span>
+                    <div style="position: absolute; top: 30px; right: 30px; z-index: 20; pointer-events: none;">
+                        <div
+                            style="background: rgba(45, 212, 191, 0.05); color: var(--secondary); padding: 8px 16px; border-radius: 100px; border: 1px solid rgba(45, 212, 191, 0.1); font-size: 0.75rem; font-family: monospace; backdrop-filter: blur(5px);">
+                            AURA.NET: 14ms
+                        </div>
+                    </div>
+
+                    <!-- Video Element -->
+                    <video id="lesson-player" controls autoplay muted
+                        style="width: 100%; height: 100%; object-fit: cover; display: block; position: relative; z-index: 5;"
+                        controlsList="nodownload">
+                        <source src="https://assets.mixkit.co/videos/23120/23120-720.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <!-- Controls Bar -->
+                <div class="controls-glass">
+                    <div class="flex-c" style="gap: 1.5rem;">
+                        <button onclick="document.getElementById('lesson-player').currentTime -= 10"
+                            class="btn btn-glass"
+                            style="font-size: 0.8rem; padding: 0.6rem 1.2rem; border-radius: 50px; background: rgba(255,255,255,0.05);">
+                            <i class="fa-solid fa-rotate-left"></i> Replay 10s
+                        </button>
+                        <div style="height: 20px; width: 1px; background: rgba(255,255,255,0.1);"></div>
+                        <div
+                            style="font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.6rem;">
+                            <i class="fa-solid fa-eye" style="color: var(--secondary);"></i>
+                            <span style="letter-spacing: 0.5px;">Active Monitoring Protocol</span>
+                        </div>
+                    </div>
+
+                    <div style="width: 40%;">
+                        <div class="flex-b"
+                            style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px;">
+                            <span>Focus Density</span>
+                            <span style="color: var(--primary);">Live Tracking</span>
+                        </div>
+                        <div id="focus-timeline-track" class="timeline-track"
+                            style="margin-top: 0; background: rgba(255,255,255,0.05);">
+                            <div
+                                style="position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(79, 70, 229, 0.3));">
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div style="position: absolute; top: 20px; right: 20px; z-index: 10; pointer-events: none;">
-                    <div
-                        style="background: rgba(45, 212, 191, 0.1); color: var(--secondary); padding: 4px 12px; border-radius: 4px; border: 1px solid rgba(45, 212, 191, 0.3); font-size: 0.8rem; font-family: monospace;">
-                        AURA.NET: 14ms
+                <!-- New: Study Tools (Rules & Notes) -->
+                <div class="study-tools-grid">
+                    <!-- Rules Section -->
+                    <div class="glass-panel-sm">
+                        <div class="tool-header">
+                            <i class="fa-solid fa-shield-halved" style="color: var(--secondary);"></i> Session Protocols
+                        </div>
+                        <ul class="rules-list">
+                            <li><i class="fa-solid fa-circle-dot"></i> <span>Stay in full-screen mode at all
+                                    times.</span>
+                            </li>
+                            <li><i class="fa-solid fa-circle-dot"></i> <span>Phone detection active: keep area
+                                    clear.</span>
+                            </li>
+                            <li><i class="fa-solid fa-circle-dot"></i> <span>No background tabs or applications.</span>
+                            </li>
+                            <li><i class="fa-solid fa-circle-dot"></i> <span>Eye tracking enabled for integrity.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Quick Notes Section -->
+                    <div class="glass-panel-sm">
+                        <div class="tool-header">
+                            <i class="fa-solid fa-pen-to-square" style="color: var(--primary);"></i> Quick Notes
+                        </div>
+                        <textarea id="student-notes" class="notes-input"
+                            placeholder="Capture key concepts here... (Auto-saved)"></textarea>
+                        <div id="notes-status" class="notes-status">Synced to local storage</div>
                     </div>
                 </div>
-
-                <!-- Anti-seek configured in app.js -->
-                <video id="lesson-player"
-                    src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" controls autoplay
-                    muted style="width: 100%; display: block;" controlsList="nodownload"></video>
             </div>
 
-            <div class="flex-b" style="margin-top: 1rem;">
-                <button onclick="document.getElementById('lesson-player').currentTime -= 10" class="btn btn-glass"
-                    style="font-size: 0.8rem; padding: 0.5rem 1rem;">
-                    <i class="fa-solid fa-rotate-left" style="margin-right: 8px;"></i> Replay 10s
-                </button>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">
-                    <i class="fa-solid fa-eye" style="color: var(--secondary); margin-right: 5px;"></i> Monitoring
-                    Active
-                </div>
-            </div>
-
-            <!-- Dynamic Timeline -->
-            <div style="margin-top: 2rem;">
-                <div class="flex-b"
-                    style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">
-                    <span>Session Focus Timeline</span>
-                    <span>Live Tracking</span>
-                </div>
-                <div id="focus-timeline-track" class="timeline-track">
-                    <!-- JS Injects Segments Here -->
-                </div>
-            </div>
-        </div>
+        </main>
 
         <!-- Sidebar -->
-        <aside class="glass" style="border-left: var(--border); display: flex; flex-direction: column;">
-            <div style="padding: 2rem; text-align: center; border-bottom: var(--border);">
-                <div
-                    style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase;">
-                    Real-time Trust Score</div>
-                <div id="trust-score"
-                    style="font-size: 3.5rem; font-weight: 700; color: var(--secondary); font-family: var(--font-heading);">
-                    100%</div>
-            </div>
-
-            <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column;">
-                <h4 style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">Event Feed</h4>
-                <div id="event-feed" style="overflow-y: auto; flex: 1;">
-                    <!-- Logs go here -->
+        <aside class="focus-sidebar">
+            <div class="score-ring-container">
+                <div style="position: relative; width: 160px; height: 160px;">
+                    <svg class="score-ring-svg">
+                        <circle class="score-circle-bg" cx="80" cy="80" r="70"></circle>
+                        <circle id="score-ring" class="score-circle" cx="80" cy="80" r="70"></circle>
+                    </svg>
+                    <div class="score-text-centered">
+                        <div id="trust-score" class="score-value">100%</div>
+                        <div class="score-label">Trust Score</div>
+                    </div>
                 </div>
             </div>
 
-            <div
-                style="padding: 1.5rem; font-size: 0.7rem; color: var(--text-muted); border-top: var(--border); text-align: center;">
-                SECURE ID: 994-AURA <br> DO NOT CLOSE WINDOW
+            <div style="padding: 2rem; flex: 1; display: flex; flex-direction: column; overflow: hidden;">
+                <h4
+                    style="margin-bottom: 1.5rem; color: white; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center;">
+                    Session Log
+                    <span
+                        style="font-size: 0.6rem; background: rgba(255,255,255,0.05); padding: 4px 8px; border-radius: 4px; color: var(--text-dim);">LIVE
+                        FEED</span>
+                </h4>
+                <div id="event-feed" style="overflow-y: auto; flex: 1; padding-right: 5px;">
+                    <!-- JS Injects Here -->
+                </div>
+            </div>
+
+            <div style="padding: 1.5rem; border-top: 1px solid rgba(255,255,255,0.03); text-align: center;">
+                <div style="font-size: 0.7rem; color: var(--text-dim); font-family: monospace;">
+                    SECURE ID: 994-AURA
+                </div>
+                <div style="font-size: 0.65rem; color: var(--text-muted); opacity: 0.5; margin-top: 4px;">
+                    SESSION ENCRYPTED
+                </div>
             </div>
         </aside>
 
     </div>
 
     <script src="app.js"></script>
+
+    <!-- Inline Script to link Score Text to Ring Animation -->
+    <script>
+        // Simple observer to update the ring based on the text
+        const scoreText = document.getElementById('trust-score');
+        const scoreRing = document.getElementById('score-ring');
+
+        // C = 2 * PI * 70 ≈ 440
+        const circumference = 440;
+
+        function updateRing() {
+            if (!scoreText) return;
+            const val = parseInt(scoreText.innerText) || 0;
+            // 100% -> offset 0. 0% -> offset 440
+            const offset = circumference - (val / 100) * circumference;
+            scoreRing.style.strokeDashoffset = offset;
+
+            // Color Shift
+            if (val < 50) scoreRing.style.stroke = 'var(--alert)';
+            else if (val < 80) scoreRing.style.stroke = '#facc15';
+            else scoreRing.style.stroke = 'var(--secondary)';
+        }
+
+        // Observer
+        const observer = new MutationObserver(updateRing);
+        if (scoreText) {
+            observer.observe(scoreText, { childList: true, characterData: true, subtree: true });
+            updateRing(); // Initial
+        }
+
+        // --- Notes Auto-Save Logic ---
+        const notesArea = document.getElementById('student-notes');
+        const notesStatus = document.getElementById('notes-status');
+
+        // Load saved notes
+        const savedNotes = localStorage.getItem('aura_student_notes');
+        if (savedNotes) {
+            notesArea.value = savedNotes;
+        }
+
+        let typingTimer;
+        notesArea.addEventListener('input', () => {
+            notesStatus.innerText = "Saving...";
+            notesStatus.style.opacity = "1";
+
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(() => {
+                localStorage.setItem('aura_student_notes', notesArea.value);
+                notesStatus.innerText = "Synced to local storage";
+                setTimeout(() => { notesStatus.style.opacity = "0.6"; }, 1000);
+            }, 800);
+        });
+    </script>
 </body>
 
 </html>

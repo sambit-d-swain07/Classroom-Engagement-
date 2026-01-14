@@ -1,0 +1,15 @@
+{
+    "name": "classroom-engagement",
+    "version": "1.0.0",
+    "description": "Classroom Engagement & Anti-Cheat System",
+    "scripts": {
+        "start": "serve .",
+        "build": "echo 'No build step required'"
+    },
+    "dependencies": {
+        "serve": "^14.2.1"
+    },
+    "engines": {
+        "node": ">=18"
+    }
+}
